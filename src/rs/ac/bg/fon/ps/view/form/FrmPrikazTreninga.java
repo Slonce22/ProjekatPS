@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import rs.ac.bg.fon.ps.controller.Controller;
 import rs.ac.bg.fon.ps.domain.Trening;
+import rs.ac.bg.fon.ps.view.form.component.table.TreningTableModel;
 
 /**
  *
@@ -110,10 +111,16 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setTitle("Pregled treninga");
         fillTbTr();
+        fillTbTrTm();
     }
 
     private void fillTbTr() {
         List<Trening> treninzi = Controller.getInstance().getAllTrening();
+        
+        //TreningTableModel ttm = new TreningTableModel(treninzi);
+        
+        //jTable.setModel(ttm);
+        
         /*DefaultTableModel dtm = (DefaultTableModel) jTable.getModel(); 
         
         for (Trening trening : treninzi) {
@@ -142,5 +149,13 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         }
          
         jTable.setModel(dtm); 
+    }
+
+    private void fillTbTrTm() {
+        List<Trening> treninzi = Controller.getInstance().getAllTrening();
+        
+        TreningTableModel ttm = new TreningTableModel(treninzi);
+        
+        jTable.setModel(ttm);
     }
 }
