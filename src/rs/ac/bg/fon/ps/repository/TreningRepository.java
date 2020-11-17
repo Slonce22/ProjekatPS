@@ -29,4 +29,14 @@ public class TreningRepository {
     public List<Trening> getAll() {
         return treninzi;
     }
+
+    public void remove(Trening trening) throws Exception {
+        int index = treninzi.indexOf(trening);
+        if (index >= 0) {
+            treninzi.remove(index);
+        }
+        else {
+            throw new Exception("Greška: Trening ne postoji!");
+        }
+    }
 }
