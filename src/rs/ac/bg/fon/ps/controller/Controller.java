@@ -60,4 +60,8 @@ public class Controller {
     public List<Trening> getAllTrening() {
         return treningRepository.getAll();
     }
+
+    public void deleteTrening(Trening trening) throws Exception {
+        treningRepository.remove(trening);
+    }
 }
