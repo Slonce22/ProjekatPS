@@ -21,7 +21,11 @@ public class TreningTableModel extends AbstractTableModel{
     
     private List<Trening> treninzi;
     private final String[] imenaKolona = {"Trening ID", "Datum i vreme", "Trajanje", "Trener", "Napomena"};
+<<<<<<< HEAD
     private final Class[] imenaKlasa = {Long.class, String.class, Double.class, Trener.class, String.class};
+=======
+    private final Class[] imenaKlasa = {Long.class, String.class, double.class, Trener.class, String.class};
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
 
     public TreningTableModel(List<Trening> treninzi) {
         this.treninzi = treninzi;
@@ -60,6 +64,7 @@ public class TreningTableModel extends AbstractTableModel{
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
+<<<<<<< HEAD
         return columnIndex == 1 || columnIndex == 3;
     }
 
@@ -72,6 +77,28 @@ public class TreningTableModel extends AbstractTableModel{
             case 3: trening.setTrener((Trener) aValue);
                 break;
         }
+=======
+        return columnIndex == 1 || columnIndex == 2 || columnIndex == 3 || columnIndex == 4;
+    }
+
+    @Override
+    public void setValueAt(Object value, int rowIndex, int columnIndex) {
+       Trening trening = treninzi.get(rowIndex);
+       switch(columnIndex) {
+           case 1:
+               trening.setDatumVreme(String.valueOf(value));
+               break;
+           case 2:
+               trening.setTrajanje(Double.parseDouble((String) value));
+               break;
+           case 3:
+               trening.setTrener((Trener) value);
+               break;
+           case 4: 
+               trening.setNapomena(String.valueOf(value));
+               break;
+       }
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }
 
     @Override
@@ -79,15 +106,23 @@ public class TreningTableModel extends AbstractTableModel{
         return imenaKlasa[columnIndex];
     }
 
+<<<<<<< HEAD
     public void dodajTrening(Trening trening) {
         treninzi.add(trening);
         fireTableRowsInserted(treninzi.size()-1, treninzi.size()-1);
         
+=======
+    public void addTrening(Trening trening) {
+        treninzi.add(trening);
+        //fireTableDataChanged();
+        fireTableRowsInserted(treninzi.size()-1, treninzi.size()-1);
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }
 
     public Trening getTreningAt(int row) {
         return treninzi.get(row);
     }
+<<<<<<< HEAD
 
     public List<Trening> getTreninzi() {
         return treninzi;
@@ -95,5 +130,7 @@ public class TreningTableModel extends AbstractTableModel{
   
     
     
+=======
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     
 }

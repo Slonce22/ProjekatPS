@@ -27,46 +27,63 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="jLbErTrajanje" min="-2" pref="234" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLbNapomena" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jScrollPaneNapomena" min="-2" pref="234" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLbTrener" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLbErTrener" max="32767" attributes="0"/>
-                                      <Component id="jComboTrener" pref="234" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLbDatum" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLbErIdTreninga" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <Component id="jTxtDatum" min="-2" pref="234" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLbTrener" min="-2" pref="145" max="-2" attributes="0"/>
+                          <Component id="jBtnAzuriraj" min="-2" pref="123" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnOdustani" min="-2" pref="123" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnIzmene" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBtnObrisi" min="-2" pref="123" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBtnSacuvaj" min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLbTrajanje" min="-2" pref="145" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jTxtTrajanje" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLbErTrener" min="-2" pref="326" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jComboTrener" min="-2" pref="326" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jLbErDatum" alignment="1" min="-2" pref="234" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLbDatum" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTxtDatum" pref="326" max="32767" attributes="0"/>
+                              <Component id="jLbErIdTreninga" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLbErDatum" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLbTreningID" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTxtTreningID" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLbTrajanje" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLbErTrajanje" max="32767" attributes="0"/>
+                              <Component id="jTxtTrajanje" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLbTreningID" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="jLbNapomena" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTxtTreningID" min="-2" pref="234" max="-2" attributes="0"/>
+                      <Component id="jScrollPaneNapomena" min="-2" pref="326" max="-2" attributes="0"/>
                   </Group>
               </Group>
+<<<<<<< HEAD
               <EmptySpace pref="67" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jBtnIzmene" alignment="1" pref="123" max="32767" attributes="0"/>
@@ -76,6 +93,9 @@
                   <Component id="jBtnAzuriraj" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,15 +103,43 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLbTreningID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtTreningID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLbErIdTreninga" min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLbDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="jLbErDatum" min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTxtTrajanje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLbTrajanje" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLbErTrajanje" min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLbNapomena" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPaneNapomena" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jComboTrener" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLbTrener" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLbTreningID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTxtTreningID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLbErIdTreninga" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLbErTrener" min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <Component id="jBtnIzmene" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -139,10 +187,24 @@
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="jBtnSacuvaj" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
+=======
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jBtnAzuriraj" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jBtnOdustani" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jBtnIzmene" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jBtnObrisi" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jBtnSacuvaj" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
+<<<<<<< HEAD
               <EmptySpace pref="23" max="32767" attributes="0"/>
+=======
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
           </Group>
       </Group>
     </DimensionLayout>
@@ -267,6 +329,19 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Azuriraj"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnAzuriraj">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#x17e;uriraj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnOdustani">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Odustani"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnOdustaniActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

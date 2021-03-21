@@ -86,7 +86,11 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             }
         });
 
+<<<<<<< HEAD
         jBtnObrisi.setText("Obrisi");
+=======
+        jBtnObrisi.setText("Obriši");
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
         jBtnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnObrisiActionPerformed(evt);
@@ -100,17 +104,27 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBtnDetalji, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                     .addComponent(jBtnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBtnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
+=======
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBtnDetalji, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(jBtnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -120,6 +134,16 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBtnDetalji, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)))
+=======
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBtnDetalji, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(jBtnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addComponent(jBtnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -127,21 +151,32 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDetaljiActionPerformed
+<<<<<<< HEAD
        //popuniti polja
         new FrmUnosTreninga(null, true, FormMode.FORM_DETAILS).setVisible(true);
         
+=======
+        //ToDo izaberi proizvod
+        
+        new FrmUnosTreninga(null, true, FormMode.FORM_VIEW).setVisible(true);
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }//GEN-LAST:event_jBtnDetaljiActionPerformed
 
     private void jBtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDodajActionPerformed
         TreningTableModel ttm = (TreningTableModel) jTable.getModel();
+<<<<<<< HEAD
            
         ttm.dodajTrening(new Trening());
         
+=======
+        ttm.addTrening(new Trening());
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }//GEN-LAST:event_jBtnDodajActionPerformed
 
     private void jBtnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnObrisiActionPerformed
         int row = jTable.getSelectedRow();
         if (row >= 0) {
+<<<<<<< HEAD
             //dialog da li ste sigurni
             try {
                 Trening tr = ((TreningTableModel) jTable.getModel()).getTreningAt(row);
@@ -156,6 +191,19 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             
         }else{
             JOptionPane.showMessageDialog(this, "Neophodno je da izaberete trening koji zelite da obrisete");
+=======
+            try {
+                //dialog da li ste sigurni!
+                Trening trening = ((TreningTableModel)jTable.getModel()).getTreningAt(row);
+                Controller.getInstance().deleteTrening(trening);
+                this.dispose();
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Potrebno je da izaberete trening!");
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
         }
     }//GEN-LAST:event_jBtnObrisiActionPerformed
 
@@ -186,7 +234,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         
         //jTable.setModel(ttm);
         
-        /*DefaultTableModel dtm = (DefaultTableModel) jTable.getModel(); 
+        DefaultTableModel dtm = (DefaultTableModel) jTable.getModel(); 
         
         for (Trening trening : treninzi) {
             Object[] rowData = new Object[]{
@@ -197,9 +245,9 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
                 trening.getNapomena()
             };
             dtm.addRow(rowData);
-        }*/
+        }
         
-        String[] imenaKolona = new String[] {"Trening ID", "Datum i vreme", "Trajanje", "Trener", "Napomena"};
+        /*String[] imenaKolona = new String[] {"Trening ID", "Datum i vreme", "Trajanje", "Trener", "Napomena"};
         DefaultTableModel dtm = new DefaultTableModel(imenaKolona, 0);
         
          for (Trening trening : treninzi) {
@@ -213,15 +261,15 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             dtm.addRow(rowData);
         }
          
-        jTable.setModel(dtm); 
+        jTable.setModel(dtm); */
     }
 
     private void fillTbTrTm() {
         List<Trening> treninzi = Controller.getInstance().getAllTrening();
         
         TreningTableModel ttm = new TreningTableModel(treninzi);
-        
         jTable.setModel(ttm);
+<<<<<<< HEAD
         
         List<Trener> listaTrenera = Controller.getInstance().getAllTreneri();
         JComboBox boxTreneri = new JComboBox(listaTrenera.toArray());
@@ -229,5 +277,14 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         TableColumnModel tcm = jTable.getColumnModel();
         TableColumn colTrener = tcm.getColumn(3);
         colTrener.setCellEditor(new DefaultCellEditor(boxTreneri));
+=======
+        List<Trener> treneri = Controller.getInstance().getAllTreneri();
+        JComboBox combo = new JComboBox<>(treneri.toArray());
+        
+        TableColumnModel tcm = jTable.getColumnModel();
+        TableColumn tcTrener = tcm.getColumn(3);
+        
+        tcTrener.setCellEditor(new DefaultCellEditor(combo)); //editor -> izmena, renderer -> prikaz
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }
 }

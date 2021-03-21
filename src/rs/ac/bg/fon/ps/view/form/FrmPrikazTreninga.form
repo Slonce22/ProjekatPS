@@ -26,6 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPaneTable" min="-2" pref="435" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jBtnDetalji" pref="86" max="32767" attributes="0"/>
@@ -33,6 +34,15 @@
                   <Component id="jBtnObrisi" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jBtnDetalji" pref="86" max="32767" attributes="0"/>
+                  <Component id="jBtnDodaj" max="32767" attributes="0"/>
+                  <Component id="jBtnObrisi" alignment="0" pref="86" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,6 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPaneTable" min="-2" pref="275" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -50,6 +61,17 @@
                       <Component id="jBtnDetalji" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   </Group>
+=======
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jBtnDetalji" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="jBtnObrisi" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                      <Component id="jBtnDodaj" min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPaneTable" min="-2" pref="275" max="-2" attributes="0"/>
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
@@ -129,7 +151,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnObrisi">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Obrisi"/>
+=======
+        <Property name="text" type="java.lang.String" value="Obri&#x161;i"/>
+>>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnObrisiActionPerformed"/>
