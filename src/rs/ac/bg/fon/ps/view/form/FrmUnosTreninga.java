@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import rs.ac.bg.fon.ps.controller.Controller;
 import rs.ac.bg.fon.ps.domain.Trener;
 import rs.ac.bg.fon.ps.domain.Trening;
+import rs.ac.bg.fon.ps.view.form.util.FormMode;
 
 /**
  *
@@ -22,11 +23,11 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
     /**
      * Creates new form FrmUnosTreninga
      */
-    public FrmUnosTreninga(java.awt.Frame parent, boolean modal) {
+    public FrmUnosTreninga(java.awt.Frame parent, boolean modal, FormMode formMode) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        prepareView();
+        prepareView(formMode);
     }
 
     /**
@@ -56,6 +57,8 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
         jLbErTrener = new javax.swing.JLabel();
         jBtnObrisi = new javax.swing.JButton();
         jBtnIzmene = new javax.swing.JButton();
+        jBtnOdustani = new javax.swing.JButton();
+        jBtnAzuriraj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Zakazivanje treninga");
@@ -94,6 +97,20 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
         jBtnObrisi.setText("Obriši");
 
         jBtnIzmene.setText("Omogući izmene");
+        jBtnIzmene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnIzmeneActionPerformed(evt);
+            }
+        });
+
+        jBtnOdustani.setText("Odustani");
+        jBtnOdustani.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnOdustaniActionPerformed(evt);
+            }
+        });
+
+        jBtnAzuriraj.setText("Azuriraj");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +152,9 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBtnIzmene, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                     .addComponent(jBtnObrisi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBtnSacuvaj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBtnSacuvaj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnOdustani, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnAzuriraj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,40 +169,43 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLbErIdTreninga, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBtnIzmene, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLbDatum)
                             .addComponent(jTxtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLbErDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtTrajanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLbTrajanje))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLbErDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBtnAzuriraj, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtTrajanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLbTrajanje))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLbErTrajanje, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jLbNapomena))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jScrollPaneNapomena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(jBtnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBtnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPaneNapomena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jComboTrener, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLbTrener))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLbErTrener, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jBtnSacuvaj, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jBtnSacuvaj, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,14 +230,24 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jBtnSacuvajActionPerformed
 
+    private void jBtnOdustaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOdustaniActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBtnOdustaniActionPerformed
+
+    private void jBtnIzmeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIzmeneActionPerformed
+        new FrmUnosTreninga(null, true, FormMode.FORM_UPDATE).setVisible(true);
+    }//GEN-LAST:event_jBtnIzmeneActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAzuriraj;
     private javax.swing.JButton jBtnIzmene;
     private javax.swing.JButton jBtnObrisi;
+    private javax.swing.JButton jBtnOdustani;
     private javax.swing.JButton jBtnSacuvaj;
     private javax.swing.JComboBox<Object> jComboTrener;
     private javax.swing.JLabel jLbDatum;
@@ -234,8 +266,9 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
     private javax.swing.JTextField jTxtTreningID;
     // End of variables declaration//GEN-END:variables
 
-    private void prepareView() {
+    private void prepareView(FormMode formMode) {
         fillComboTreneri();
+        setupComponents(formMode);
     }
 
     private void fillComboTreneri() {
@@ -282,6 +315,38 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
         
         if (!errorMes.isEmpty()) {
             throw new Exception(errorMes);
+        }
+    }
+
+    private void setupComponents(FormMode formMode) {
+        switch(formMode) {
+            case FORM_ADD:
+                jBtnSacuvaj.setVisible(true);
+                jBtnObrisi.setEnabled(false);
+                jBtnOdustani.setVisible(true);
+                jBtnIzmene.setEnabled(false);
+                jBtnAzuriraj.setEnabled(false);
+                break;
+            case FORM_DETAILS:
+                jBtnSacuvaj.setEnabled(false);
+                jBtnObrisi.setVisible(true);
+                jBtnOdustani.setVisible(true);
+                jBtnIzmene.setVisible(true);
+                jBtnAzuriraj.setEnabled(false);
+                
+                jTxtTreningID.setEditable(false);
+                jTxtDatum.setEditable(false);
+                jTxtTrajanje.setEditable(false);
+                jTextNapomena.setEditable(false);
+                jComboTrener.setEditable(false);
+                break;
+            case FORM_UPDATE:
+                jBtnSacuvaj.setVisible(true);
+                jBtnObrisi.setEnabled(false);
+                jBtnOdustani.setVisible(true);
+                jBtnIzmene.setEnabled(false);
+                jBtnAzuriraj.setVisible(true);
+                break;
         }
     }
 }

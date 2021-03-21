@@ -7,10 +7,19 @@
 package rs.ac.bg.fon.ps.view.form;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import rs.ac.bg.fon.ps.controller.Controller;
+import rs.ac.bg.fon.ps.domain.Trener;
 import rs.ac.bg.fon.ps.domain.Trening;
 import rs.ac.bg.fon.ps.view.form.component.table.TreningTableModel;
+import rs.ac.bg.fon.ps.view.form.util.FormMode;
 
 /**
  *
@@ -40,6 +49,8 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         jScrollPaneTable = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jBtnDetalji = new javax.swing.JButton();
+        jBtnDodaj = new javax.swing.JButton();
+        jBtnObrisi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,6 +79,20 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             }
         });
 
+        jBtnDodaj.setText("Dodaj");
+        jBtnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDodajActionPerformed(evt);
+            }
+        });
+
+        jBtnObrisi.setText("Obrisi");
+        jBtnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnObrisiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,17 +100,26 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jBtnDetalji, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBtnDetalji, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(jBtnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnDetalji, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBtnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jBtnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnDetalji, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -93,8 +127,37 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDetaljiActionPerformed
-      
+       //popuniti polja
+        new FrmUnosTreninga(null, true, FormMode.FORM_DETAILS).setVisible(true);
+        
     }//GEN-LAST:event_jBtnDetaljiActionPerformed
+
+    private void jBtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDodajActionPerformed
+        TreningTableModel ttm = (TreningTableModel) jTable.getModel();
+           
+        ttm.dodajTrening(new Trening());
+        
+    }//GEN-LAST:event_jBtnDodajActionPerformed
+
+    private void jBtnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnObrisiActionPerformed
+        int row = jTable.getSelectedRow();
+        if (row >= 0) {
+            //dialog da li ste sigurni
+            try {
+                Trening tr = ((TreningTableModel) jTable.getModel()).getTreningAt(row);
+                Controller.getInstance().obrisiTrening(tr);
+                ((TreningTableModel) jTable.getModel()).fireTableDataChanged();
+                /*((TreningTableModel) jTable.getModel()).fireTableRowsDeleted(
+                        ((TreningTableModel) jTable.getModel()).getTreninzi().size(), 
+                        ((TreningTableModel) jTable.getModel()).getTreninzi().size());*/
+            } catch (Exception ex) {
+                Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Neophodno je da izaberete trening koji zelite da obrisete");
+        }
+    }//GEN-LAST:event_jBtnObrisiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,6 +166,8 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnDetalji;
+    private javax.swing.JButton jBtnDodaj;
+    private javax.swing.JButton jBtnObrisi;
     private javax.swing.JScrollPane jScrollPaneTable;
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
@@ -157,5 +222,12 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         TreningTableModel ttm = new TreningTableModel(treninzi);
         
         jTable.setModel(ttm);
+        
+        List<Trener> listaTrenera = Controller.getInstance().getAllTreneri();
+        JComboBox boxTreneri = new JComboBox(listaTrenera.toArray());
+        
+        TableColumnModel tcm = jTable.getColumnModel();
+        TableColumn colTrener = tcm.getColumn(3);
+        colTrener.setCellEditor(new DefaultCellEditor(boxTreneri));
     }
 }

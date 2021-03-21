@@ -17,7 +17,7 @@ public class Trening {
     
     private Long treningId;
     private String datumVreme;
-    private double trajanje;
+    private Double trajanje;
     private String napomena;
     private Trener trener;
 
@@ -48,11 +48,11 @@ public class Trening {
         this.datumVreme = datumVreme;
     }
 
-    public double getTrajanje() {
+    public Double getTrajanje() {
         return trajanje;
     }
 
-    public void setTrajanje(double trajanje) {
+    public void setTrajanje(Double trajanje) {
         this.trajanje = trajanje;
     }
 
@@ -80,11 +80,7 @@ public class Trening {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.treningId);
-        hash = 29 * hash + Objects.hashCode(this.datumVreme);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.trajanje) ^ (Double.doubleToLongBits(this.trajanje) >>> 32));
-        hash = 29 * hash + Objects.hashCode(this.napomena);
-        hash = 29 * hash + Objects.hashCode(this.trener);
+        hash = 79 * hash + Objects.hashCode(this.treningId);
         return hash;
     }
 
@@ -97,21 +93,12 @@ public class Trening {
             return false;
         }
         final Trening other = (Trening) obj;
-        if (!Objects.equals(this.datumVreme, other.datumVreme)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.trajanje) != Double.doubleToLongBits(other.trajanje)) {
-            return false;
-        }
-        if (!Objects.equals(this.napomena, other.napomena)) {
-            return false;
-        }
-        if (!Objects.equals(this.trener, other.trener)) {
+        if (!Objects.equals(this.treningId, other.treningId)) {
             return false;
         }
         return true;
     }
-
+   
     
 
     

@@ -11,8 +11,13 @@ import rs.ac.bg.fon.ps.domain.Korisnik;
 import rs.ac.bg.fon.ps.domain.Trener;
 import rs.ac.bg.fon.ps.domain.Trening;
 import rs.ac.bg.fon.ps.repository.KorisnikRepository;
+import rs.ac.bg.fon.ps.repository.Repository;
 import rs.ac.bg.fon.ps.repository.TrenerRepository;
 import rs.ac.bg.fon.ps.repository.TreningRepository;
+import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBKorisnik;
+import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBTrener;
+import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBTrening;
+
 
 /**
  *
@@ -22,14 +27,14 @@ public class Controller {
     
     private static Controller controller;
     
-    private final KorisnikRepository korisnikRepository;
-    private final TrenerRepository trenerRepository;
-    private final TreningRepository treningRepository;
+    private final Repository korisnikRepository;
+    private final Repository trenerRepository;
+    private final Repository treningRepository;
 
     private Controller() {
-        korisnikRepository = new KorisnikRepository();
-        trenerRepository = new TrenerRepository();
-        treningRepository = new TreningRepository();
+        korisnikRepository = new RepositoryDBKorisnik();
+        trenerRepository = new RepositoryDBTrener();
+        treningRepository = new RepositoryDBTrening();
     }
     
     public static Controller getInstance() {
@@ -49,15 +54,20 @@ public class Controller {
         throw new Exception("Nepoznat korisnik!");
     }
     
-    public List<Trener> getAllTreneri() {
+    public List<Trener> getAllTreneri() throws Exception{
         return trenerRepository.getAll();
     }
 
-    public void addTrening(Trening trening) {
+    public void addTrening(Trening trening) throws Exception{
         treningRepository.add(trening);
     }
     
-    public List<Trening> getAllTrening() {
+    public List<Trening> getAllTrening() throws Exception{
         return treningRepository.getAll();
     }
+
+    public void obrisiTrening(Trening tr) throws Exception {
+        //treningRepository.remove(tr);
+    }
+
 }

@@ -8,6 +8,7 @@ package rs.ac.bg.fon.ps.view.form;
 
 import java.awt.Frame;
 import javax.swing.JFrame;
+import rs.ac.bg.fon.ps.view.form.util.FormMode;
 
 /**
  *
@@ -137,7 +138,7 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jUnosNovogKlijentaActionPerformed
 
     private void jZakazivanjeTreningaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jZakazivanjeTreningaActionPerformed
-       new FrmUnosTreninga(this, true).setVisible(true);
+       new FrmUnosTreninga(this, true, FormMode.FORM_ADD).setVisible(true);
     }//GEN-LAST:event_jZakazivanjeTreningaActionPerformed
 
     private void jPretragaTreningaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPretragaTreningaActionPerformed
