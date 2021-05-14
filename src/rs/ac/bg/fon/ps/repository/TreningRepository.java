@@ -30,13 +30,7 @@ public class TreningRepository {
         return treninzi;
     }
 
-<<<<<<< HEAD
-    public void remove(Trening tr) throws Exception {
-        int index = treninzi.indexOf(tr);
-        if (index>=0) {
-            treninzi.remove(index);
-        } else throw new Exception("Greska: Trening ne postoji");
-=======
+
     public void remove(Trening trening) throws Exception {
         int index = treninzi.indexOf(trening);
         if (index >= 0) {
@@ -45,6 +39,5 @@ public class TreningRepository {
         else {
             throw new Exception("Greška: Trening ne postoji!");
         }
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
     }
 }

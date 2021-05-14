@@ -66,14 +66,8 @@ public class Controller {
         return treningRepository.getAll();
     }
 
-<<<<<<< HEAD
-    public void obrisiTrening(Trening tr) throws Exception {
-        //treningRepository.remove(tr);
+    public void deleteTrening(Trening trening) throws Exception {
+        //treningRepository.remove(trening);
     }
 
-=======
-    public void deleteTrening(Trening trening) throws Exception {
-        treningRepository.remove(trening);
-    }
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
 }

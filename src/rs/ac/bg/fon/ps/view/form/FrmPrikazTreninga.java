@@ -151,47 +151,26 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDetaljiActionPerformed
-<<<<<<< HEAD
+
        //popuniti polja
-        new FrmUnosTreninga(null, true, FormMode.FORM_DETAILS).setVisible(true);
-        
-=======
+
         //ToDo izaberi proizvod
         
         new FrmUnosTreninga(null, true, FormMode.FORM_VIEW).setVisible(true);
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
+
     }//GEN-LAST:event_jBtnDetaljiActionPerformed
 
     private void jBtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDodajActionPerformed
         TreningTableModel ttm = (TreningTableModel) jTable.getModel();
-<<<<<<< HEAD
-           
-        ttm.dodajTrening(new Trening());
-        
-=======
+
         ttm.addTrening(new Trening());
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
+
     }//GEN-LAST:event_jBtnDodajActionPerformed
 
     private void jBtnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnObrisiActionPerformed
         int row = jTable.getSelectedRow();
         if (row >= 0) {
-<<<<<<< HEAD
-            //dialog da li ste sigurni
-            try {
-                Trening tr = ((TreningTableModel) jTable.getModel()).getTreningAt(row);
-                Controller.getInstance().obrisiTrening(tr);
-                ((TreningTableModel) jTable.getModel()).fireTableDataChanged();
-                /*((TreningTableModel) jTable.getModel()).fireTableRowsDeleted(
-                        ((TreningTableModel) jTable.getModel()).getTreninzi().size(), 
-                        ((TreningTableModel) jTable.getModel()).getTreninzi().size());*/
-            } catch (Exception ex) {
-                Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }else{
-            JOptionPane.showMessageDialog(this, "Neophodno je da izaberete trening koji zelite da obrisete");
-=======
+
             try {
                 //dialog da li ste sigurni!
                 Trening trening = ((TreningTableModel)jTable.getModel()).getTreningAt(row);
@@ -203,7 +182,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         }
         else {
             JOptionPane.showMessageDialog(this, "Potrebno je da izaberete trening!");
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
+
         }
     }//GEN-LAST:event_jBtnObrisiActionPerformed
 
@@ -269,7 +248,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         
         TreningTableModel ttm = new TreningTableModel(treninzi);
         jTable.setModel(ttm);
-<<<<<<< HEAD
+
         
         List<Trener> listaTrenera = Controller.getInstance().getAllTreneri();
         JComboBox boxTreneri = new JComboBox(listaTrenera.toArray());
@@ -277,7 +256,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         TableColumnModel tcm = jTable.getColumnModel();
         TableColumn colTrener = tcm.getColumn(3);
         colTrener.setCellEditor(new DefaultCellEditor(boxTreneri));
-=======
+
         List<Trener> treneri = Controller.getInstance().getAllTreneri();
         JComboBox combo = new JComboBox<>(treneri.toArray());
         
@@ -285,6 +264,6 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         TableColumn tcTrener = tcm.getColumn(3);
         
         tcTrener.setCellEditor(new DefaultCellEditor(combo)); //editor -> izmena, renderer -> prikaz
->>>>>>> a926576f3035a74247dd27aa3d56e01425b06d98
+
     }
 }
