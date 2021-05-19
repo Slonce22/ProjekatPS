@@ -72,7 +72,7 @@ public class TreningTableModel extends AbstractTableModel{
                trening.setDatumVreme(String.valueOf(value));
                break;
            case 2:
-               trening.setTrajanje(Double.parseDouble((String) value));
+               trening.setTrajanje(Double.parseDouble(String.valueOf(value)));
                break;
            case 3:
                trening.setTrener((Trener) value);

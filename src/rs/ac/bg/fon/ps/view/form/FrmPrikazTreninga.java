@@ -137,9 +137,14 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonDetaljiActionPerformed
 
     private void jButtonDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDodajActionPerformed
+        
         TreningTableModel ttm = (TreningTableModel) jTable.getModel();
 
-        ttm.addTrening(new Trening());
+        int row = jTable.getRowCount();
+        if (row == 0 || (jTable.getValueAt(row-1, 1) != null && jTable.getValueAt(row-1, 2) != null
+                    && jTable.getValueAt(row-1, 3) != null && jTable.getValueAt(row-1, 4) != null)) {
+            ttm.addTrening(new Trening());
+        }
     }//GEN-LAST:event_jButtonDodajActionPerformed
 
     private void jButtonObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObrisiActionPerformed
