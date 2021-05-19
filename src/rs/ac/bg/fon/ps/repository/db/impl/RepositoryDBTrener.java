@@ -60,5 +60,10 @@ public class RepositoryDBTrener implements Repository<Trener>{
     public void add(Trener obj) throws Exception {
         
     }
+
+    @Override
+    public void remove(Trener obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

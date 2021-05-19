@@ -153,9 +153,10 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
 
             try {
                 //dialog da li ste sigurni!
+                //new FrmBrisanje(null, true).setVisible(true);
                 Trening trening = ((TreningTableModel)jTable.getModel()).getTreningAt(row);
                 Controller.getInstance().deleteTrening(trening);
-                this.dispose();
+                //this.dispose();
             } catch (Exception ex) {
                 Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
             }
