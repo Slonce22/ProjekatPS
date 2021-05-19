@@ -43,7 +43,7 @@ public class Controller {
         return controller;
     }
     
-    public Korisnik login (String korisnickoIme, String lozinka) throws Exception {
+    public Korisnik login (String korisnickoIme, String lozinka) throws Exception  {
         List<Korisnik> korisnici = korisnikRepository.getAll();
         
         for (Korisnik korisnik : korisnici) {
