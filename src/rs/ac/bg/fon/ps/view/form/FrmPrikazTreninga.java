@@ -137,9 +137,14 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonDetaljiActionPerformed
 
     private void jButtonDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDodajActionPerformed
+        
         TreningTableModel ttm = (TreningTableModel) jTable.getModel();
 
-        ttm.addTrening(new Trening());
+        int row = jTable.getRowCount();
+        if (row == 0 || (jTable.getValueAt(row-1, 1) != null && jTable.getValueAt(row-1, 2) != null
+                    && jTable.getValueAt(row-1, 3) != null && jTable.getValueAt(row-1, 4) != null)) {
+            ttm.addTrening(new Trening());
+        }
     }//GEN-LAST:event_jButtonDodajActionPerformed
 
     private void jButtonObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObrisiActionPerformed
@@ -148,9 +153,10 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
 
             try {
                 //dialog da li ste sigurni!
+                //new FrmBrisanje(null, true).setVisible(true);
                 Trening trening = ((TreningTableModel)jTable.getModel()).getTreningAt(row);
                 Controller.getInstance().deleteTrening(trening);
-                this.dispose();
+                //this.dispose();
             } catch (Exception ex) {
                 Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
             }

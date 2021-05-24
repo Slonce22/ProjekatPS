@@ -78,5 +78,21 @@ public class RepositoryDBTrening implements DBRepository<Trening>{
              throw new Exception("Trening nije zakazan!");
          }
     }
+
+    @Override
+    public void remove(Trening obj) throws Exception{
+        try {
+            Connection connection = DBConnectionFactory.getInstance().getConnection();
+            String sql = "delete from trening where Trening_ID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setLong(1, obj.getTreningId());
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            throw new Exception("Trening nije obrisan!");
+            
+        }
+    }
     
 }

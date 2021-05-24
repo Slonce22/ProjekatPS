@@ -7,6 +7,7 @@
 package rs.ac.bg.fon.ps.repository;
 
 import java.util.List;
+import rs.ac.bg.fon.ps.domain.Trening;
 
 /**
  *
@@ -15,4 +16,6 @@ import java.util.List;
 public interface Repository<T> {
     List<T> getAll() throws Exception;
     void add(T obj) throws Exception;
+
+    public void remove(T obj) throws Exception;
 }

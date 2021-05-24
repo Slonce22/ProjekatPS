@@ -67,7 +67,7 @@ public class Controller {
     }
 
     public void deleteTrening(Trening trening) throws Exception {
-        //treningRepository.remove(trening);
+        treningRepository.remove(trening);
     }
 
 }
