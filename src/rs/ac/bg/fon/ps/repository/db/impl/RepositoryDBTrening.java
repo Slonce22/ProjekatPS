@@ -30,7 +30,7 @@ import rs.ac.bg.fon.ps.repository.db.DBRepository;
 public class RepositoryDBTrening implements DBRepository<Trening>{
 
     @Override
-    public List<Trening> getAll() throws Exception {
+    public List<Trening> getAll(){
         try {
             Connection connection = DBConnectionFactory.getInstance().getConnection();
             List<Trening> lista = new ArrayList<>();
@@ -53,9 +53,9 @@ public class RepositoryDBTrening implements DBRepository<Trening>{
             rs.close();
             statement.close();
             return lista;
-        } catch (SQLException ex) {
-            Logger.getLogger(RepositoryDBKorisnik.class.getName()).log(Level.SEVERE, null, ex);
-            throw new Exception("Greska u konekciji");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
     }
 
@@ -80,18 +80,37 @@ public class RepositoryDBTrening implements DBRepository<Trening>{
     }
 
     @Override
-    public void remove(Trening obj) throws Exception{
+    public void delete(Trening obj) throws Exception{
         try {
             Connection connection = DBConnectionFactory.getInstance().getConnection();
-            String sql = "delete from trening where Trening_ID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, obj.getTreningId());
-            statement.executeUpdate();
+            String sql = "delete from trening where Trening_ID = "+obj.getTreningId();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
             statement.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            throw new Exception("Trening nije obrisan!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception("Brisanje treninga DB greska: \n"+ex.getMessage());
             
+        }
+    }
+
+    @Override
+    public void edit(Trening obj) throws Exception {
+        try {
+            String sql="UPDATE Trening SET "
+                    + "Datum_i_vreme='"+obj.getDatumVreme()+"', "
+                    + "Trajanje='"+obj.getTrajanje()+"', "
+                    + "Napomena='"+obj.getNapomena()+"',"
+                    + "Trener_ID="+obj.getTrener().getTrenerId()+" "
+            + "WHERE Trening_ID="+obj.getTreningId();
+            System.out.println(sql);
+            Connection connection=DBConnectionFactory.getInstance().getConnection();
+            Statement statement=connection.createStatement();
+            statement.executeUpdate(sql);
+            statement.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new Exception("Izmena treninga DB greska: \n"+ex.getMessage());
         }
     }
     

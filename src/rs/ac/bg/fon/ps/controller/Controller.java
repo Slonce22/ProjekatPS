@@ -14,6 +14,7 @@ import rs.ac.bg.fon.ps.repository.KorisnikRepository;
 import rs.ac.bg.fon.ps.repository.Repository;
 import rs.ac.bg.fon.ps.repository.TrenerRepository;
 import rs.ac.bg.fon.ps.repository.TreningRepository;
+import rs.ac.bg.fon.ps.repository.db.DBRepository;
 import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBKorisnik;
 import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBTrener;
 import rs.ac.bg.fon.ps.repository.db.impl.RepositoryDBTrening;
@@ -54,20 +55,69 @@ public class Controller {
         throw new Exception("Nepoznat korisnik!");
     }
     
-    public List<Trener> getAllTreneri() throws Exception{
+    public List<Trener> getAllTreneri(){
         return trenerRepository.getAll();
     }
 
     public void addTrening(Trening trening) throws Exception{
-        treningRepository.add(trening);
+        //treningRepository.add(trening);
+        ((DBRepository)treningRepository).connect();
+        try{
+            treningRepository.add(trening);
+            ((DBRepository)treningRepository).commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            ((DBRepository)treningRepository).rollback();
+            throw e;
+        }finally{
+            ((DBRepository)treningRepository).disconnect();
+        }
     }
     
     public List<Trening> getAllTrening() throws Exception{
-        return treningRepository.getAll();
+        //return treningRepository.getAll();
+        List<Trening> products=null;
+        ((DBRepository)treningRepository).connect();
+        try{
+            products = treningRepository.getAll();
+            ((DBRepository)treningRepository).commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            ((DBRepository)treningRepository).rollback();
+            throw e;
+        }finally{
+            ((DBRepository)treningRepository).disconnect();
+        }
+        return products;
     }
 
     public void deleteTrening(Trening trening) throws Exception {
-        treningRepository.remove(trening);
+        //treningRepository.remove(trening);
+        ((DBRepository)treningRepository).connect();
+        try{
+            treningRepository.delete(trening);
+            ((DBRepository)treningRepository).commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            ((DBRepository)treningRepository).rollback();
+            throw e;
+        }finally{
+            ((DBRepository)treningRepository).disconnect();
+        }
+    }
+    
+    public void editTrening(Trening trening) throws Exception {
+        ((DBRepository)treningRepository).connect();
+        try{
+            ((DBRepository)treningRepository).edit(trening);
+            ((DBRepository)treningRepository).commit();
+        }catch(Exception e){
+            e.printStackTrace();
+            ((DBRepository)treningRepository).rollback();
+            throw e;
+        }finally{
+            ((DBRepository)treningRepository).disconnect();
+        }
     }
 
 }

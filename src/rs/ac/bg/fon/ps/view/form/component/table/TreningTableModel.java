@@ -55,7 +55,9 @@ public class TreningTableModel extends AbstractTableModel{
 
     @Override
     public String getColumnName(int column) {
-        return imenaKolona[column];
+        //return imenaKolona[column];
+        if (column>imenaKolona.length) return "n/a";
+        return imenaKolona[column]; 
     }
 
     @Override

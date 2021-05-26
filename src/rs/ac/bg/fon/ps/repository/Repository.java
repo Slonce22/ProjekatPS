@@ -14,8 +14,8 @@ import rs.ac.bg.fon.ps.domain.Trening;
  * @author USER
  */
 public interface Repository<T> {
-    List<T> getAll() throws Exception;
+    List<T> getAll();
     void add(T obj) throws Exception;
-
-    public void remove(T obj) throws Exception;
+    void edit(T obj) throws Exception;
+    void delete(T obj)throws Exception;
 }

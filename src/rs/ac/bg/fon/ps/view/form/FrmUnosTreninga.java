@@ -6,10 +6,17 @@
 
 package rs.ac.bg.fon.ps.view.form;
 
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import rs.ac.bg.fon.ps.controller.Controller;
 import rs.ac.bg.fon.ps.domain.Trener;
 import rs.ac.bg.fon.ps.domain.Trening;
@@ -24,11 +31,11 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
     /**
      * Creates new form FrmUnosTreningaNovo
      */
-    public FrmUnosTreninga(java.awt.Frame parent, boolean modal, FormMode formMode) throws Exception {
+    public FrmUnosTreninga(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
-        prepareView(formMode);
+        //setLocationRelativeTo(null);
+        //prepareView(formMode);
     }
 
     /**
@@ -198,7 +205,7 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
     }//GEN-LAST:event_jTxtTrajanjeActionPerformed
 
     private void jBtnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSacuvajActionPerformed
-        try {
+        /*try {
             validateForm();
             Trening trening = new Trening();
         
@@ -213,25 +220,204 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Trening je uspesno zakazan!", "Dodat trening", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Nisu pravilno uneta jedno ili sva polja", "Neuspesno zakazivanje treninga", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_jBtnSacuvajActionPerformed
 
     private void jBtnOdustaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOdustaniActionPerformed
-        dispose();
+        //dispose();
     }//GEN-LAST:event_jBtnOdustaniActionPerformed
 
     private void jBtnIzmeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIzmeneActionPerformed
         
-            try {
+           /* try {
                 new FrmUnosTreninga(null, true, FormMode.FORM_EDIT).setVisible(true);
             } catch (Exception ex) {
                 Logger.getLogger(FrmUnosTreninga.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
     }//GEN-LAST:event_jBtnIzmeneActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public JButton getjBtnAzuriraj() {
+        return jBtnAzuriraj;
+    }
+
+    public void setjBtnAzuriraj(JButton jBtnAzuriraj) {
+        this.jBtnAzuriraj = jBtnAzuriraj;
+    }
+
+    public JButton getjBtnIzmene() {
+        return jBtnIzmene;
+    }
+
+    public void setjBtnIzmene(JButton jBtnIzmene) {
+        this.jBtnIzmene = jBtnIzmene;
+    }
+
+    public JButton getjBtnObrisi() {
+        return jBtnObrisi;
+    }
+
+    public void setjBtnObrisi(JButton jBtnObrisi) {
+        this.jBtnObrisi = jBtnObrisi;
+    }
+
+    public JButton getjBtnOdustani() {
+        return jBtnOdustani;
+    }
+
+    public void setjBtnOdustani(JButton jBtnOdustani) {
+        this.jBtnOdustani = jBtnOdustani;
+    }
+
+    public JButton getjBtnSacuvaj() {
+        return jBtnSacuvaj;
+    }
+
+    public void setjBtnSacuvaj(JButton jBtnSacuvaj) {
+        this.jBtnSacuvaj = jBtnSacuvaj;
+    }
+
+    public JComboBox getjComboTrener() {
+        return jComboTrener;
+    }
+
+    public void setjComboTrener(JComboBox jComboTrener) {
+        this.jComboTrener = jComboTrener;
+    }
+
+    public JLabel getjLbDatum() {
+        return jLbDatum;
+    }
+
+    public void setjLbDatum(JLabel jLbDatum) {
+        this.jLbDatum = jLbDatum;
+    }
+
+    public JLabel getjLbErDatum() {
+        return jLbErDatum;
+    }
+
+    public void setjLbErDatum(JLabel jLbErDatum) {
+        this.jLbErDatum = jLbErDatum;
+    }
+
+    public JLabel getjLbErIdTreninga() {
+        return jLbErIdTreninga;
+    }
+
+    public void setjLbErIdTreninga(JLabel jLbErIdTreninga) {
+        this.jLbErIdTreninga = jLbErIdTreninga;
+    }
+
+    public JLabel getjLbErTrajanje() {
+        return jLbErTrajanje;
+    }
+
+    public void setjLbErTrajanje(JLabel jLbErTrajanje) {
+        this.jLbErTrajanje = jLbErTrajanje;
+    }
+
+    public JLabel getjLbErTrener() {
+        return jLbErTrener;
+    }
+
+    public void setjLbErTrener(JLabel jLbErTrener) {
+        this.jLbErTrener = jLbErTrener;
+    }
+
+    public JLabel getjLbNapomena() {
+        return jLbNapomena;
+    }
+
+    public void setjLbNapomena(JLabel jLbNapomena) {
+        this.jLbNapomena = jLbNapomena;
+    }
+
+    public JLabel getjLbTrajanje() {
+        return jLbTrajanje;
+    }
+
+    public void setjLbTrajanje(JLabel jLbTrajanje) {
+        this.jLbTrajanje = jLbTrajanje;
+    }
+
+    public JLabel getjLbTrener() {
+        return jLbTrener;
+    }
+
+    public void setjLbTrener(JLabel jLbTrener) {
+        this.jLbTrener = jLbTrener;
+    }
+
+    public JLabel getjLbTreningID() {
+        return jLbTreningID;
+    }
+
+    public void setjLbTreningID(JLabel jLbTreningID) {
+        this.jLbTreningID = jLbTreningID;
+    }
+
+    public JScrollPane getjScrollPaneNapomena() {
+        return jScrollPaneNapomena;
+    }
+
+    public void setjScrollPaneNapomena(JScrollPane jScrollPaneNapomena) {
+        this.jScrollPaneNapomena = jScrollPaneNapomena;
+    }
+
+    public JTextArea getjTextNapomena() {
+        return jTextNapomena;
+    }
+
+    public void setjTextNapomena(JTextArea jTextNapomena) {
+        this.jTextNapomena = jTextNapomena;
+    }
+
+    public JTextField getjTxtDatum() {
+        return jTxtDatum;
+    }
+
+    public void setjTxtDatum(JTextField jTxtDatum) {
+        this.jTxtDatum = jTxtDatum;
+    }
+
+    public JTextField getjTxtTrajanje() {
+        return jTxtTrajanje;
+    }
+
+    public void setjTxtTrajanje(JTextField jTxtTrajanje) {
+        this.jTxtTrajanje = jTxtTrajanje;
+    }
+
+    public JTextField getjTxtTreningID() {
+        return jTxtTreningID;
+    }
+
+    public void setjTxtTreningID(JTextField jTxtTreningID) {
+        this.jTxtTreningID = jTxtTreningID;
+    }
+
+    public void addSaveBtnActionListener(ActionListener actionListener) {
+        jBtnSacuvaj.addActionListener(actionListener);
+    }
+
+    public void addEnableChangesBtnActionListener(ActionListener actionListener) {
+        jBtnAzuriraj.addActionListener(actionListener);
+    }
+
+    public void addCancelBtnActionListener(ActionListener actionListener) {
+        jBtnOdustani.addActionListener(actionListener);
+    }
+
+    public void addDeleteBtnActionListener(ActionListener actionListener) {
+        jBtnObrisi.addActionListener(actionListener);
+    }
+
+    public void addEditBtnActionListener(ActionListener actionListener) {
+        jBtnIzmene.addActionListener(actionListener);
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -257,7 +443,7 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
     private javax.swing.JTextField jTxtTreningID;
     // End of variables declaration//GEN-END:variables
 
-    private void prepareView(FormMode formMode) throws Exception {
+    /*private void prepareView(FormMode formMode) throws Exception {
         fillComboTreneri();
         setupComponents(formMode);
     }
@@ -343,5 +529,5 @@ public class FrmUnosTreninga extends javax.swing.JDialog {
         if (!errorMes.isEmpty()) {
             throw new Exception(errorMes);
         }
-    }
+    }*/
 }

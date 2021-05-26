@@ -6,7 +6,8 @@
 
 package rs.ac.bg.fon.ps.main;
 
-import rs.ac.bg.fon.ps.view.form.FrmLogin;
+//import rs.ac.bg.fon.ps.view.form.FrmLogin;
+import rs.ac.bg.fon.ps.view.cordinator.MainCordinator;
 
 /**
  *
@@ -15,6 +16,7 @@ import rs.ac.bg.fon.ps.view.form.FrmLogin;
 public class Main {
     
     public static void main(String[] args) {
-        new FrmLogin().setVisible(true);
+        MainCordinator.getInstance().openLoginForm();
+        //new FrmLogin().setVisible(true);
     }
 }

@@ -28,8 +28,8 @@ public class DBConnectionFactory {
         return instance;
     }
     
-    public Connection getConnection() {
-        if (connection == null) {
+    public Connection getConnection() throws SQLException{
+        /*if (connection == null) {
             String url = "jdbc:mysql://localhost:3306/psdb";
             String user = "root";
             String password = "";
@@ -38,6 +38,15 @@ public class DBConnectionFactory {
             } catch (SQLException ex) {
                 Logger.getLogger(DBConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        return connection;*/
+        
+        if (connection == null || connection.isClosed()) {
+            String url = "jdbc:mysql://localhost:3306/psdb";
+            String username = "root";
+            String password = "";
+            connection = DriverManager.getConnection(url, username, password);
+            connection.setAutoCommit(false);
         }
         return connection;
     }

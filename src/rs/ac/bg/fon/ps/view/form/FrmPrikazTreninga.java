@@ -6,12 +6,15 @@
 
 package rs.ac.bg.fon.ps.view.form;
 
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -30,11 +33,11 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     /**
      * Creates new form FrmPrikazTreninga
      */
-    public FrmPrikazTreninga(java.awt.Frame parent, boolean modal) throws Exception {
+    public FrmPrikazTreninga(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
-        prepareView();
+        //prepareView();
     }
 
     /**
@@ -128,27 +131,27 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             
             //ToDo izaberi proizvod
            
-               try {
+             /*  try {
                    new FrmUnosTreninga(null, true, FormMode.FORM_VIEW).setVisible(true);
                } catch (Exception ex) {
                    Logger.getLogger(FrmPrikazTreninga.class.getName()).log(Level.SEVERE, null, ex);
-               }
+               }*/
 
     }//GEN-LAST:event_jButtonDetaljiActionPerformed
 
     private void jButtonDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDodajActionPerformed
         
-        TreningTableModel ttm = (TreningTableModel) jTable.getModel();
+        /*TreningTableModel ttm = (TreningTableModel) jTable.getModel();
 
         int row = jTable.getRowCount();
         if (row == 0 || (jTable.getValueAt(row-1, 1) != null && jTable.getValueAt(row-1, 2) != null
                     && jTable.getValueAt(row-1, 3) != null && jTable.getValueAt(row-1, 4) != null)) {
             ttm.addTrening(new Trening());
-        }
+        }*/
     }//GEN-LAST:event_jButtonDodajActionPerformed
 
     private void jButtonObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObrisiActionPerformed
-        int row = jTable.getSelectedRow();
+        /*int row = jTable.getSelectedRow();
         if (row >= 0) {
 
             try {
@@ -164,12 +167,23 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         else {
             JOptionPane.showMessageDialog(this, "Potrebno je da izaberete trening!");
 
-        }
+        }*/
     }//GEN-LAST:event_jButtonObrisiActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public JTable getjTable() {
+        return jTable;
+    }
+
+    public JButton getjButtonDetalji() {
+        return jButtonDetalji;
+    }
+    
+    public void getBtnDetailsAddActionListener(ActionListener actionListener) {
+        jButtonDetalji.addActionListener(actionListener);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -180,7 +194,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
 
-    private void prepareView() throws Exception {
+    /*private void prepareView() throws Exception {
         setLocationRelativeTo(null);
         setTitle("Pregled treninga");
         fillTbTr();
@@ -221,7 +235,7 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
             dtm.addRow(rowData);
         }
          
-        jTable.setModel(dtm); */
+        jTable.setModel(dtm); 
     }
 
     private void fillTbTrTm() throws Exception {
@@ -237,5 +251,5 @@ public class FrmPrikazTreninga extends javax.swing.JDialog {
         TableColumnModel tcm = jTable.getColumnModel();
         TableColumn colTrener = tcm.getColumn(3);
         colTrener.setCellEditor(new DefaultCellEditor(boxTreneri));
-    }
+    }*/
 }

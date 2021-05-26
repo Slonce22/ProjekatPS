@@ -6,7 +6,11 @@
 
 package rs.ac.bg.fon.ps.view.form;
 
+import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import rs.ac.bg.fon.ps.controller.Controller;
 import rs.ac.bg.fon.ps.domain.Korisnik;
 
@@ -113,7 +117,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtKorisnickoImeActionPerformed
 
     private void jBtnUlogujSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUlogujSeActionPerformed
-        try {
+        /*try {
             validateForm();
             Controller controller = Controller.getInstance();
             Korisnik korisnik = controller.login(jTxtKorisnickoIme.getText().trim(), String.valueOf(jPfLozinka.getPassword()));
@@ -123,14 +127,54 @@ public class FrmLogin extends javax.swing.JFrame {
         } catch (Exception e) {
             //System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(this, e.getMessage(), "Greska prilikom logovanja!", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
         
     }//GEN-LAST:event_jBtnUlogujSeActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void loginAddActionListener(ActionListener actionListener){
+        jBtnUlogujSe.addActionListener(actionListener);
+    }
+    
+    public JPasswordField getjPfLozinka() {
+        return jPfLozinka;
+    }
+
+    public JTextField getjTxtKorisnickoIme() {
+        return jTxtKorisnickoIme;
+    }
+
+    public void setjKorisnickoImeGreska(JLabel jKorisnickoImeGreska) {
+        this.jKorisnickoImeGreska = jKorisnickoImeGreska;
+    }
+
+    public JLabel getjLbLozinka() {
+        return jLbLozinka;
+    }
+
+    public void setjPfLozinka(JPasswordField jPfLozinka) {
+        this.jPfLozinka = jPfLozinka;
+    }
+
+    public JLabel getjLbKorisnickoIme() {
+        return jLbKorisnickoIme;
+    }
+
+    public void setjTxtKorisnickoIme(JTextField jTxtKorisnickoIme) {
+        this.jTxtKorisnickoIme = jTxtKorisnickoIme;
+    }
    
+    public JLabel getjKorisnickoImeGreska() {
+        return jKorisnickoImeGreska;
+    }
+
+    public JLabel getjLozinkaGreska() {
+        return jLozinkaGreska;
+    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnUlogujSe;
@@ -142,7 +186,9 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtKorisnickoIme;
     // End of variables declaration//GEN-END:variables
 
-    private void validateForm() throws Exception {
+    
+    
+    /*private void validateForm() throws Exception {
         
         jKorisnickoImeGreska.setText("");
         jLozinkaGreska.setText("");
@@ -165,5 +211,5 @@ public class FrmLogin extends javax.swing.JFrame {
             throw new Exception(errorMes);
         }
         
-    }
+    }*/
 }

@@ -5,8 +5,12 @@
         <group>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/view/form/FrmMain.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/view/form/component/table/TreningTableModel.java</file>
+            <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/repository/db/impl/RepositoryDBTrening.java</file>
+            <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/repository/Repository.java</file>
+            <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/view/form/FrmBrisanje.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/domain/Korisnik.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/controller/Controller.java</file>
+            <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/domain/Trening.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/repository/TreningRepository.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/view/form/util/FormMode.java</file>
             <file>file:/C:/Users/USER/Documents/ProjekatPS/src/rs/ac/bg/fon/ps/view/form/FrmPrikazTreninga.java</file>

@@ -26,8 +26,9 @@ import rs.ac.bg.fon.ps.repository.db.DBRepository;
 public class RepositoryDBKorisnik implements DBRepository<Korisnik>{
 
     @Override
-    public List<Korisnik> getAll() throws Exception{
+    public List<Korisnik> getAll(){
         try {
+            
             Connection connection = DBConnectionFactory.getInstance().getConnection();
             List<Korisnik> lista = new ArrayList<>();
             String sql = "select * from korisnik";
@@ -48,9 +49,9 @@ public class RepositoryDBKorisnik implements DBRepository<Korisnik>{
             rs.close();
             statement.close();
             return lista;
-        } catch (SQLException ex) {
-            Logger.getLogger(RepositoryDBKorisnik.class.getName()).log(Level.SEVERE, null, ex);
-            throw new Exception("Greska u konekciji");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
         
     }
@@ -61,7 +62,12 @@ public class RepositoryDBKorisnik implements DBRepository<Korisnik>{
     }
 
     @Override
-    public void remove(Korisnik obj) {
+    public void edit(Korisnik obj) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Korisnik obj) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

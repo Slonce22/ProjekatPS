@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ps.repository.db.DBConnectionFactory;
 public class RepositoryDBTrener implements Repository<Trener>{
 
     @Override
-    public List<Trener> getAll() throws Exception {
+    public List<Trener> getAll() {
         try {
             Connection connection = DBConnectionFactory.getInstance().getConnection();
             List<Trener> lista = new ArrayList<>();
@@ -50,9 +50,9 @@ public class RepositoryDBTrener implements Repository<Trener>{
             rs.close();
             statement.close();
             return lista;
-        } catch (SQLException ex) {
-            Logger.getLogger(RepositoryDBKorisnik.class.getName()).log(Level.SEVERE, null, ex);
-            throw new Exception("Greska u konekciji");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return null;
         }
     }
 
@@ -62,7 +62,12 @@ public class RepositoryDBTrener implements Repository<Trener>{
     }
 
     @Override
-    public void remove(Trener obj) {
+    public void delete(Trener obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void edit(Trener obj) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

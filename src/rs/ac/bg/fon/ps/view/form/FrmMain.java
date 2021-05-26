@@ -7,6 +7,7 @@
 package rs.ac.bg.fon.ps.view.form;
 
 import java.awt.Frame;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -141,21 +142,21 @@ public class FrmMain extends javax.swing.JFrame {
 
     private void jZakazivanjeTreningaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jZakazivanjeTreningaActionPerformed
        
-           try {
+           /*try {
                new FrmUnosTreninga(this, true, FormMode.FORM_ADD).setVisible(true);
            } catch (Exception ex) {
                Logger.getLogger(FrmMain.class.getName()).log(Level.SEVERE, null, ex);
-           }
+           }*/
 
     }//GEN-LAST:event_jZakazivanjeTreningaActionPerformed
 
     private void jPretragaTreningaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPretragaTreningaActionPerformed
         
-            try {
+            /*try {
                 new FrmPrikazTreninga(this, true).setVisible(true);
             } catch (Exception ex) {
                 Logger.getLogger(FrmMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
     }//GEN-LAST:event_jPretragaTreningaActionPerformed
 
     /**
@@ -179,4 +180,12 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jUnosNovogTrenera;
     private javax.swing.JMenuItem jZakazivanjeTreninga;
     // End of variables declaration//GEN-END:variables
+
+    public void jmiTreningNoviActionListener(ActionListener actionListener) {
+        jZakazivanjeTreninga.addActionListener(actionListener);
+    }
+
+    public void jmiTreningPrikaziSveActionListener(ActionListener actionListener) {
+        jPretragaTreninga.addActionListener(actionListener);
+    }
 }
