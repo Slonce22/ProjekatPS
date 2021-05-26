@@ -8,6 +8,8 @@ package rs.ac.bg.fon.ps.view.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +49,16 @@ public class TreningPrikaziSveController {
                 }
             }
         });
+        
+        frmPrikaz.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                fillTblTrening();
+            }
+            
+        });
+        
     }
     
     public void openForm() {
@@ -57,7 +69,7 @@ public class TreningPrikaziSveController {
     
     private void prepareView() {
         frmPrikaz.setTitle("Prikaz treninga");
-        fillTblTrening();
+        //fillTblTrening();
     }
     
     private void fillTblTrening() {

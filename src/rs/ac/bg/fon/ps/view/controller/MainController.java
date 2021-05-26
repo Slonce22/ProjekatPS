@@ -7,6 +7,9 @@
 package rs.ac.bg.fon.ps.view.controller;
 
 import java.awt.event.ActionEvent;
+import rs.ac.bg.fon.ps.domain.Korisnik;
+import rs.ac.bg.fon.ps.domain.Trening;
+import rs.ac.bg.fon.ps.view.constant.Constants;
 import rs.ac.bg.fon.ps.view.cordinator.MainCordinator;
 import rs.ac.bg.fon.ps.view.form.FrmMain;
 
@@ -24,6 +27,8 @@ public class MainController {
     }
 
     public void openForm(){
+        Korisnik korisnik = (Korisnik) MainCordinator.getInstance().getParam(Constants.CURRENT_USER);
+        frmMain.getjLblTrenutanKorisnik().setText(korisnik.getImePrezime());
         frmMain.setVisible(true);
     }
     

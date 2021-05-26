@@ -13,4 +13,5 @@ package rs.ac.bg.fon.ps.view.constant;
 public class Constants {
     public static final String PARAM_TRENING="TRENING";
     public static final String FORM_ALL_TRENING="FORM_ALL_TRENING";
+    public static final String CURRENT_USER="CURRENT_USER";
 }

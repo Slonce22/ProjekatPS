@@ -168,7 +168,7 @@ public class TreningController {
                 frmTrening.getjComboTrener().setEnabled(false);
 
                 //get trening
-                Trening trening = MainCordinator.getInstance().getParam(Constants.PARAM_TRENING);
+                Trening trening = (Trening) MainCordinator.getInstance().getParam(Constants.PARAM_TRENING);
                 frmTrening.getjTxtTreningID().setText(trening.getTreningId()+ "");
                 frmTrening.getjTxtTrajanje().setText(trening.getTrajanje()+"");
                 frmTrening.getjTxtDatum().setText(trening.getDatumVreme());

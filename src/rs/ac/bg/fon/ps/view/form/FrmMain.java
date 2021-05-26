@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import rs.ac.bg.fon.ps.view.form.util.FormMode;
 
 /**
@@ -36,6 +37,7 @@ public class FrmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLblTrenutanKorisnik = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuKlijenti = new javax.swing.JMenu();
         jUnosNovogKlijenta = new javax.swing.JMenuItem();
@@ -53,6 +55,8 @@ public class FrmMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Glavna ekranska forma");
+
+        jLblTrenutanKorisnik.setText("jLabel1");
 
         jMenuKlijenti.setText("Klijenti ");
 
@@ -122,11 +126,17 @@ public class FrmMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLblTrenutanKorisnik, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLblTrenutanKorisnik)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,6 +179,7 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jIzmenaPostojecegKlijenta;
     private javax.swing.JMenuItem jIzmenaTrenera;
     private javax.swing.JMenuItem jIzmenaTreninga;
+    private javax.swing.JLabel jLblTrenutanKorisnik;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuKlijenti;
     private javax.swing.JMenu jMenuTreneri;
@@ -188,4 +199,10 @@ public class FrmMain extends javax.swing.JFrame {
     public void jmiTreningPrikaziSveActionListener(ActionListener actionListener) {
         jPretragaTreninga.addActionListener(actionListener);
     }
+
+    public JLabel getjLblTrenutanKorisnik() {
+        return jLblTrenutanKorisnik;
+    }
+    
+    
 }

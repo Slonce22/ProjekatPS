@@ -73,11 +73,11 @@ public class MainCordinator {
         return mainController;
     }
     
-    public void addParam(String name, Trening product) {
-        params.put(name, product);
+    public void addParam(String name, Object obj) {
+        params.put(name, obj);
     }
 
-    public Trening getParam(String name) {
-        return  (Trening) params.get(name);
+    public Object getParam(String name) {
+        return params.get(name);
     }
 }

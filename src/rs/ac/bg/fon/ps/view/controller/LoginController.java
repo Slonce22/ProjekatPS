@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import rs.ac.bg.fon.ps.controller.Controller;
 import rs.ac.bg.fon.ps.domain.Korisnik;
+import rs.ac.bg.fon.ps.view.constant.Constants;
 import rs.ac.bg.fon.ps.view.cordinator.MainCordinator;
 import rs.ac.bg.fon.ps.view.form.FrmLogin;
 import rs.ac.bg.fon.ps.view.form.FrmMain;
@@ -64,7 +65,7 @@ public class LoginController {
                         Korisnik korisnik = controller.login(frmLogin.getjTxtKorisnickoIme().getText().trim(), String.valueOf(frmLogin.getjPfLozinka().getPassword()));
                         JOptionPane.showMessageDialog(frmLogin, "Dobro došli " + korisnik.getImePrezime() + " !", "Upešno logovanje!", JOptionPane.INFORMATION_MESSAGE);
                         frmLogin.dispose();
-                        
+                        MainCordinator.getInstance().addParam(Constants.CURRENT_USER, korisnik);
                         MainCordinator.getInstance().openMainForm();
                     } catch (Exception e) {
                         //System.out.println(e.getMessage());
